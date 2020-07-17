@@ -19,7 +19,7 @@ class MainActivity : BaseActivity(), MainView {
 
     private lateinit var mAdapter: NewsListAdapter
 
-    private lateinit var viewPodEmpty: EmptyViewPod
+    private lateinit var mviewPodEmpty: EmptyViewPod
 
     private lateinit var mPresenter: MainPresenter
 
@@ -62,8 +62,9 @@ class MainActivity : BaseActivity(), MainView {
     }
 
     private fun setUpViewPod() {
-        viewPodEmpty = vpEmpty as EmptyViewPod
-        viewPodEmpty.setEmptyData(EM_NO_NEWS_AVAILABLE, EMPTY_IMAGE_URL)
+        mviewPodEmpty = vpEmpty as EmptyViewPod
+        mviewPodEmpty.setEmptyData(EM_NO_NEWS_AVAILABLE, EMPTY_IMAGE_URL)
+        mviewPodEmpty.setDelegate(mPresenter)
     }
 
     private fun setUpSwipeRefresh() {
